@@ -1,11 +1,393 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>GitHub Pages Test</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Pages — инструкция по публикации</title>
+    <style>
+        /* Глобальные сбросы и базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background: #fafaf9;
+            color: #1c1c1e;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 2.5rem 2rem;
+        }
+
+        /* Заголовок и кнопка скачивания */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f0f0ee;
+            padding-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #2c6fbb;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .download-btn:hover {
+            background: #1d4e8a;
+        }
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Общие стили для секций */
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li {
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        code {
+            background: #f4f4f2;
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #e4e4e4;
+            padding: 1.2rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            font-size: 0.9rem;
+        }
+
+        .note {
+            background: #f8f9fa;
+            border-left: 4px solid #2c6fbb;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eaeae8;
+        }
+        th {
+            background: #f4f4f2;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.5rem 1rem;
+                border-radius: 16px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            pre {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+            table {
+                font-size: 0.85rem;
+            }
+            th, td {
+                padding: 0.5rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 1rem 0.75rem;
+            }
+            .header h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>GitHub Pages работает</h1>
-<p>Страница создана в feature-ветке.</p>
+<div class="container">
+
+    <!-- Шапка с заголовком и кнопкой скачивания -->
+    <header class="header">
+        <h1>📘 GitHub Pages — инструкция</h1>
+        <a href="instruction.md" download class="download-btn">
+            <!-- SVG иконка скачивания -->
+            <svg viewBox="0 0 24 24" width="20" height="20">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/>
+                <path d="M8 17h8v1.5H8V17z"/>
+            </svg>
+            Скачать инструкцию (Markdown)
+        </a>
+    </header>
+
+    <!-- Вступление -->
+    <section>
+        <p>Инструкция по публикации статического сайта на <strong>GitHub Pages</strong>.
+            Подходит для личных страниц и проектов. Описаны два способа.</p>
+    </section>
+
+    <!-- СПОСОБ 1 -->
+    <section>
+        <h2>Способ 1. Deploy from a branch (встроенный)</h2>
+        <p><span class="badge">Для статики без сборки</span></p>
+        <ol>
+            <li><strong>Подготовьте файлы</strong> — убедитесь, что <code>index.html</code> находится в корне репозитория.</li>
+            <li><strong>Запушьте изменения</strong>:
+                <pre><code>git add .
+git commit -m "Initial commit"
+git push origin main</code></pre>
+            </li>
+            <li><strong>Включите GitHub Pages</strong>:
+                <ul>
+                    <li>Зайдите в <strong>Settings → Pages</strong>.</li>
+                    <li>В разделе <strong>Build and deployment → Source</strong> выберите <strong>Deploy from a branch</strong>.</li>
+                    <li>Выберите ветку <code>main</code> и папку <code>/ (root)</code>.</li>
+                    <li>Нажмите <strong>Save</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Дождитесь публикации</strong>:
+                <ul>
+                    <li>После сохранения GitHub запустит процесс сборки.</li>
+                    <li>Перейдите на вкладку <strong>Actions</strong> — вы увидите workflow <strong>“pages build and deployment”</strong>.</li>
+                    <li>Дождитесь, когда рядом загорится <strong>зелёный кружок</strong> (успех).</li>
+                    <li>Обновите страницу <strong>Settings → Pages</strong> — вверху появится ссылка на сайт.</li>
+                </ul>
+            </li>
+            <li><strong>Проверьте сайт</strong> — откройте ссылку в режиме инкогнито (<kbd>Ctrl+F5</kbd>).</li>
+        </ol>
+    </section>
+
+    <!-- СПОСОБ 2 -->
+    <section>
+        <h2>Способ 2. GitHub Actions (гибкий)</h2>
+        <p><span class="badge">Для проектов со сборкой или расширенной настройкой</span></p>
+        <ol>
+            <li><strong>Подготовьте файлы</strong> — разместите <code>index.html</code> в корне (или укажите другой путь в workflow).</li>
+            <li><strong>Создайте workflow-файл</strong>:
+                <ul>
+                    <li>В корне создайте папку <code>.github/workflows</code>.</li>
+                    <li>Внутри создайте файл <code>deploy.yml</code> с содержимым:
+                        <pre><code>name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4</code></pre>
+                        <em>Если <code>index.html</code> лежит в подпапке (например, <code>public</code>), замените <code>path: '.'</code> на <code>path: 'public'</code>.</em>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Запушьте изменения</strong>:
+                <pre><code>git add .
+git commit -m "Add GitHub Pages workflow"
+git push origin main</code></pre>
+            </li>
+            <li><strong>Настройте источник Pages</strong>:
+                <ul>
+                    <li>Зайдите в <strong>Settings → Pages</strong>.</li>
+                    <li>В <strong>Source</strong> выберите <strong>GitHub Actions</strong>.</li>
+                    <li>Нажмите <strong>Save</strong> (если уже выбрано, пропустите).</li>
+                </ul>
+            </li>
+            <li><strong>Запустите деплой</strong>:
+                <ul>
+                    <li>Перейдите на вкладку <strong>Actions</strong>.</li>
+                    <li>Вы увидите workflow <strong>Deploy to GitHub Pages</strong>.</li>
+                    <li>Дождитесь зелёной галочки.</li>
+                </ul>
+            </li>
+            <li><strong>Найдите ссылку на сайт</strong>:
+                <ul>
+                    <li>Вверху <strong>Settings → Pages</strong> или в логах workflow (шаг <strong>Deploy to GitHub Pages</strong>).</li>
+                    <li>Откройте ссылку в инкогнито.</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Таблица проблем -->
+    <section>
+        <h2>❓ Возможные проблемы и их решение</h2>
+        <table>
+            <thead>
+            <tr><th>Проблема</th><th>Решение</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>404 Not Found</strong></td>
+                <td>
+                    1. Проверьте источник в <strong>Pages</strong> (для способа 1 — Deploy from a branch, для способа 2 — GitHub Actions).<br>
+                    2. Убедитесь, что <code>index.html</code> в корне (или в папке, указанной в <code>path</code>).<br>
+                    3. Очистите кеш браузера или откройте в режиме инкогнито.
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Битый / не открывающийся файл</strong></td>
+                <td>Создайте новый <code>index.html</code> с минимальным содержимым (см. ниже) и запушьте заново.</td>
+            </tr>
+            <tr>
+                <td><strong>Workflow не запускается</strong></td>
+                <td>Проверьте, что файл <code>.github/workflows/deploy.yml</code> лежит в ветке <code>main</code> и назван правильно.</td>
+            </tr>
+            <tr>
+                <td><strong>Сайт не обновляется</strong></td>
+                <td>Подождите 2–3 минуты (CDN-кеш). Сделайте жёсткую перезагрузку (<kbd>Ctrl+F5</kbd>).</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Минимальный index.html -->
+    <section>
+        <h2>🧩 Минимальный рабочий <code>index.html</code></h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <!-- Подвал -->
+    <footer style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666;">
+        <p>GitHub Pages инструкция — для студентов и начинающих.</p>
+    </footer>
+</div>
 </body>
 </html>
